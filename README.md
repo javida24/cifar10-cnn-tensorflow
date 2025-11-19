@@ -38,12 +38,12 @@ This project demonstrates:
 </p>
 
 **Figure 1.** CIFAR‑10 CNN architecture (Graphviz horizontal view).  
-Conv blocks use *HeNormal initialization* + *L2 regularization (1e‑5 dense)* and progressive **dropout (0.25 → 0.4)**.  
+Conv blocks use *HeNormal initialization* + *L2 regularization (1e‑5 dense)* and progressive **dropout (0.25)**.  
 Final classifier is **Dense(10)** activated by `softmax` and initialized with *GlorotUniform*.  
 Optimizer = **Adam+ExponentialDecay** *(LR = 1e‑3, decay rate = 0.9, every 10 000 steps)*.
 
-✅ **Total Params:** 2.85 M (10.9 MB)  
-✅ **Trainable Params:** 2.84 M  
+✅ **Total Params:** 2.23 M (8.52 MB)  
+✅ **Trainable Params:** 2.23 M  
 ✅ **Regularization:** L2 → Dense (1e‑5)  
 
 ---
@@ -51,13 +51,13 @@ Optimizer = **Adam+ExponentialDecay** *(LR = 1e‑3, decay rate =�
 
 | Metric | Value |
 |--------|-------|
-| **Best Validation Accuracy** | ≈ 88 % |
-| **Test Accuracy** | ≈ 87 % |
-| **Test Loss** | ~ 0.46 |
-| **Total Parameters** | 2,848,202 |
+| **Best Validation Accuracy** | ≈ 89.7 % |
+| **Test Accuracy** | ≈ 88.8 % |
+| **Test Loss** | ~ 0.43 |
+| **Total Parameters** | 2,233,546 |
 | **Loss Function** | `categorical_crossentropy` |
 | **Optimizer** | Adam + ExponentialDecay (LR: 1e‑3 → decay 0.9 / 10 000 steps) |
-| **Regularization** | L2 Conv = 1e‑6 · Dense = 1e‑5; Dropout = 0.25 / 0.4 |
+| **Regularization** | L2 Dense = 1e‑5; Dropout = 0.25 |
 | **Augmentation** | Flip · Rotation · Zoom · Translation |
 | **Framework** | TensorFlow 2.16 / Keras |
 | **Python Version** | 3.10 |
@@ -72,7 +72,7 @@ Optimizer = **Adam+ExponentialDecay** *(LR = 1e‑3, decay rate =�
 
 **Figure 2.** Loss and accuracy progress over 150 epochs (batch size 128).  
 The smooth convergence and small gap indicate well‑balanced regularization.  
-Best validation accuracy: **≈ 87 %** on held‑out set.
+Best validation accuracy: **≈ 89.7 %** on held‑out set.
 
 ---
 
