@@ -31,7 +31,16 @@ This project demonstrates:
 
 ---
 
-## 🧩 Model Architecture
+## 🧠 Model Architecture
+
+<p align="center">
+  <img src="images/model_architecture.png" width="95%">
+</p>
+
+**Figure 1.** CIFAR‑10 CNN architecture (Graphviz horizontal view).  
+Conv blocks use *HeNormal initialization* + *L2 regularization (1e‑6 conv, 1e‑5 dense)* and progressive **dropout (0.25 → 0.4)**.  
+Final classifier is **Dense(10)** activated by `softmax` and initialized with *GlorotUniform*.  
+Optimizer = **Adam+ExponentialDecay** *(LR = 1e‑3, decay rate = 0.9, every 10 000 steps)*.
 
 ✅ **Total Params:** 2.85 M (10.9 MB)  
 ✅ **Trainable Params:** 2.84 M  
@@ -55,18 +64,6 @@ This project demonstrates:
 
 
 ## 🎨 Visuals & Results Summary
-
-### 🧠 Model Architecture
-<p align="center">
-  <img src="images/model_architecture.png" width="95%">
-</p>
-
-**Figure 1.** CIFAR‑10 CNN architecture (Graphviz horizontal view).  
-Conv blocks use *HeNormal initialization* + *L2 regularization (1e‑6 conv, 1e‑5 dense)* and progressive **dropout (0.25 → 0.4)**.  
-Final classifier is **Dense(10)** activated by `softmax` and initialized with *GlorotUniform*.  
-Optimizer = **Adam+ExponentialDecay** *(LR = 1e‑3, decay rate = 0.9, every 10 000 steps)*.
-
----
 
 ### 📈 Training & Validation Curves
 <p align="center">
