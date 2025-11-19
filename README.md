@@ -22,4 +22,68 @@ This project demonstrates:
 
 ## 📂 Dataset: CIFAR‑10
 
-**CIFAR‑10** contains 60 000 color images (32 × 32 × 3) in 10 classe ✈️ airplane • 🚗 automobile • 🐸 frog • 🐱 cat •
+**CIFAR‑10** contains 60 000 color images (32 × 32 × 3) in 10 classes:
+> ✈️ airplane • 🚗 automobile • 🐸 frog • 🐱 cat • 🐶 dog • 🐴 horse • 🐦 bird • 🚢 ship • 🐄 deer • 🕹 truck  
+
+- Images normalized to [0 – 1]  
+- Labels converted to one‑hot vectors using `to_categorical()`  
+- Usually split: 80 % train / 20 % validation + separate test set  
+
+---
+
+## 🧩 Model Architecture
+Input (32, 32, 3)
+
+│
+
+├── Data Augmentation
+
+│ ├── RandomFlip(“horizontal”)
+
+│ ├── RandomRotation(0.1)
+
+│ ├── RandomZoom(0.1)
+
+│ └── RandomTranslation(0.1, 0.1)
+
+│
+
+├── [Conv2D → BatchNorm → MaxPool → Dropout(0.25)] × 3
+
+│ • He initializer for ReLU layers
+
+│ • L2 regularization (1e‑6)
+
+│
+
+├── Flatten()
+
+├── Dense(256, ReLU, L2=1e‑5)
+
+├── BatchNormalization()
+
+├── Dropout(0.4)
+
+└── Dense(10, Softmax, GlorotUniform)
+
+
+✅ **Total Params:** 2.85 M (10.9 MB)  
+✅ **Trainable Params:** 2.84 M  
+✅ **Regularization:** L2 → Convs (1e‑6), Dense (1e‑5)  
+
+---
+## 🧾 Results Summary
+
+| Metric | Value |
+|--------|-------|
+| **Best Validation Accuracy** | ≈ 88 % |
+| **Test Accuracy** | ≈ 87 % |
+| **Test Loss** | ~ 0.46 |
+| **Total Parameters** | 2,848,202 |
+| **Loss Function** | `categorical_crossentropy` |
+| **Optimizer** | Adam + ExponentialDecay (LR: 1e‑3 → decay 0.9 / 10 000 steps) |
+| **Regularization** | L2 Conv = 1e‑6 · Dense = 1e‑5; Dropout = 0.25 / 0.4 |
+| **Augmentation** | Flip · Rotation · Zoom · Translation |
+| **Framework** | TensorFlow 2.16 / Keras |
+| **Python Version** | 3.10 |
+
