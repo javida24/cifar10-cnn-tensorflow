@@ -107,7 +107,7 @@ Optimizer = **Adam+ExponentialDecay** *(LR = 1e‑3, decay rate =�
   <img src="images/learning_curves.png" width="85%">
 </p>
 
-**Figure 2.** Loss and accuracy progress over 100 epochs (batch size 128).  
+**Figure 2.** Loss and accuracy progress over 150 epochs (batch size 128).  
 The smooth convergence and small gap indicate well‑balanced regularization.  
 Best validation accuracy: **≈ 87 %** on held‑out set.
 
