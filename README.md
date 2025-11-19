@@ -87,3 +87,40 @@ Input (32, 32, 3)
 | **Framework** | TensorFlow 2.16 / Keras |
 | **Python Version** | 3.10 |
 
+
+## 🎨 Visuals & Results Summary
+
+### 🧠 Model Architecture
+<p align="center">
+  <img src="images/model_architecture.png" width="95%">
+</p>
+
+**Figure 1.** CIFAR‑10 CNN architecture (Graphviz horizontal view).  
+Conv blocks use *HeNormal initialization* + *L2 regularization (1e‑6 conv, 1e‑5 dense)* and progressive **dropout (0.25 → 0.4)**.  
+Final classifier is **Dense(10)** activated by `softmax` and initialized with *GlorotUniform*.  
+Optimizer = **Adam+ExponentialDecay** *(LR = 1e‑3, decay rate = 0.9, every 10 000 steps)*.
+
+---
+
+### 📈 Training & Validation Curves
+<p align="center">
+  <img src="images/learning_curves.png" width="85%">
+</p>
+
+**Figure 2.** Loss and accuracy progress over 100 epochs (batch size 128).  
+The smooth convergence and small gap indicate well‑balanced regularization.  
+Best validation accuracy: **≈ 87 %** on held‑out set.
+
+---
+
+### 🔍 Confusion Matrix & Classification Report
+<p align="center">
+  <img src="images/confusion_matrix.png" width="85%">
+</p>
+
+**Figure 3.** CIFAR‑10 test set confusion matrix with per‑class performance.  
+Diagonal dominance shows robust feature discrimination.  
+Remaining misclassifications occur mostly between visually similar classes  
+(*cat ↔ dog*, *automobile ↔ truck*), highlighting realistic domain overlap.
+
+---
