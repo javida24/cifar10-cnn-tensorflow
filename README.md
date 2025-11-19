@@ -32,40 +32,6 @@ This project demonstrates:
 ---
 
 ## 🧩 Model Architecture
-Input (32, 32, 3)
-
-│
-
-├── Data Augmentation
-
-│ ├── RandomFlip(“horizontal”)
-
-│ ├── RandomRotation(0.1)
-
-│ ├── RandomZoom(0.1)
-
-│ └── RandomTranslation(0.1, 0.1)
-
-│
-
-├── [Conv2D → BatchNorm → MaxPool → Dropout(0.25)] × 3
-
-│ • He initializer for ReLU layers
-
-│ • L2 regularization (1e‑6)
-
-│
-
-├── Flatten()
-
-├── Dense(256, ReLU, L2=1e‑5)
-
-├── BatchNormalization()
-
-├── Dropout(0.4)
-
-└── Dense(10, Softmax, GlorotUniform)
-
 
 ✅ **Total Params:** 2.85 M (10.9 MB)  
 ✅ **Trainable Params:** 2.84 M  
