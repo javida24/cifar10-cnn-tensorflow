@@ -23,7 +23,7 @@ This project demonstrates:
 ## 📂 Dataset: CIFAR‑10
 
 **CIFAR‑10** contains 60 000 color images (32 × 32 × 3) in 10 classes:
-> ✈️ airplane • 🚗 automobile • 🐸 frog • 🐱 cat • 🐶 dog • 🐴 horse • 🐦 bird • 🚢 ship • 🐄 deer • 🕹 truck  
+> ✈️ airplane • 🚗 automobile • 🐸 frog • 🐱 cat • 🐶 dog • 🐴 horse • 🐦 bird • 🚢 ship • 🦌 deer • 🚚 truck  
 
 - Images normalized to [0 – 1]  
 - Labels converted to one‑hot vectors using `to_categorical()`  
