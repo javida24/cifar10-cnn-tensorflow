@@ -35,7 +35,7 @@ This project demonstrates:
 
 ✅ **Total Params:** 2.85 M (10.9 MB)  
 ✅ **Trainable Params:** 2.84 M  
-✅ **Regularization:** L2 → Convs (1e‑6), Dense (1e‑5)  
+✅ **Regularization:** L2 → Dense (1e‑5)  
 
 ---
 ## 🧾 Results Summary
